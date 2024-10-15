@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "732109092125",
+    "project_id": "locationshareapp-5f52f",
+    "storage_bucket": "locationshareapp-5f52f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732109092125:android:05fa492e37935a4278ddf4",
+        "android_client_info": {
+          "package_name": "com.example.locationshareapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFx_DDT0QeL3FgsIN6x4jGiZQbFwFSI2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
