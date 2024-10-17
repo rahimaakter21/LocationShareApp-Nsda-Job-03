@@ -3,12 +3,12 @@
 
 <item android:id="@+id/friendFragment"
     android:icon="@drawable/friend"
-    android:title= "friend"/>
+    android:title= "friends"/>
 
 
-    <item android:id="@+id/personFragment"
-        android:icon="@drawable/person"
-        android:title= "person"/>
+    <item android:id="@+id/profileFragment"
+        android:icon="@drawable/profile"
+        android:title= "profile"/>
 
 
     <item android:id="@+id/logout"

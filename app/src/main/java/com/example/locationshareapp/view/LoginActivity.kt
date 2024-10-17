@@ -27,46 +27,33 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener{
             val  email = binding.emailEt.text.toString()
             val  password = binding.passwordEt.text.toString()
-            authenticationViewModel.register(email,password, {
 
-                startActivity(Intent(this, MainActivity::class.java))
-
-                finish()
-
-            },{
-
-                Toast.makeText(this,it, Toast.LENGTH_SHORT).show()
-            })
+            if(email.isEmpty()||password.isEmpty()) {
+                Toast.makeText(this, "please fill al,l fields", Toast.LENGTH_SHORT).show()
+            }
+            else if (!android.util.Patterns.EMAIL_ADDRESS.matcher((email)).matches ()){
+                Toast.makeText(this,"please enter valid email", Toast.LENGTH_SHORT).show()
+            }
+            else if(password.length<6){
+                Toast.makeText(this,"password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                authenticationViewModel.register(email,password, {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                },{
+                    Toast.makeText(this,it, Toast.LENGTH_SHORT).show()
+                })
+            }
 
         }
         binding.registerTxt.setOnClickListener{
-
-            val email = binding.emailEt.text.toString()
-            val password = binding.passwordEt.text.toString()
-            if(email.isNotEmpty() && password.isNotEmpty()){
-
-                Toast.makeText(this,"please enter email and passord",Toast.LENGTH_SHORT).show()
-            }
-            else if (!android.util.Patterns.EMAIL_ADDRESS.matcher((email)).matches ()){
-            Toast.makeText(this,"please enter email ",Toast.LENGTH_SHORT).show()
-
-            }
-            else if(password.length<6){
-
-                Toast.makeText(this,"please enter valid password",Toast.LENGTH_SHORT).show()
-            }
-            else{
-            authenticationViewModel.login(email,password,{
-
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, RegisterActivity::class.java))
                 finish()
-            },{
-
-                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
-            })
-            }
         }
-
+        binding.forgetPasswordTxt.setOnClickListener{
+           Toast.makeText(this,"forget password",Toast.LENGTH_SHORT).show()
+        }
     }
     override fun onStart() {
         super.onStart()
@@ -75,6 +62,5 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
-
 
 }

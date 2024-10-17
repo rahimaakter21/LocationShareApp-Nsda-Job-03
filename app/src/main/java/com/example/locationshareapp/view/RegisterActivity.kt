@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.locationshareapp.R
 import com.example.locationshareapp.databinding.ActivityRegisterBinding
 import com.example.locationshareapp.viewModel.AuthenticationViewModel
+import com.example.locationshareapp.viewModel.FirestoreViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
@@ -15,12 +16,14 @@ class RegisterActivity : AppCompatActivity() {
 
  private  lateinit var  binding: ActivityRegisterBinding
 private  lateinit var   authenticationViewModel: AuthenticationViewModel
+private  lateinit var  firestoreViewModel: FirestoreViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         authenticationViewModel = ViewModelProvider(this).get(AuthenticationViewModel::class.java)
+        firestoreViewModel = ViewModelProvider(this).get(FirestoreViewModel::class.java)
 
         binding.registerBtn.setOnClickListener{
 
@@ -28,6 +31,8 @@ private  lateinit var   authenticationViewModel: AuthenticationViewModel
             val  email = binding.emailEt.text.toString()
             val  password = binding.passwordEt.text.toString()
             val confirmPassword= binding.conPasswordEt.text.toString()
+            val location = "Don't found any location yet "
+
             if(name.isEmpty() || email.isEmpty()||password.isEmpty()|| confirmPassword.isEmpty()){
                     Toast.makeText(this,"please fill al,l fields",Toast.LENGTH_SHORT).show()
 
@@ -47,6 +52,8 @@ private  lateinit var   authenticationViewModel: AuthenticationViewModel
             }
             else {
                 authenticationViewModel.register(email, password, {
+
+                    firestoreViewModel.saveUser(this,authenticationViewModel.getCurrentUserId(), name, email, location)
 
                     startActivity(Intent(this, MainActivity::class.java))
 
