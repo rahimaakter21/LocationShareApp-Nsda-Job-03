@@ -14,9 +14,9 @@ import com.google.firebase.auth.auth
 
 class RegisterActivity : AppCompatActivity() {
 
- private  lateinit var  binding: ActivityRegisterBinding
-private  lateinit var   authenticationViewModel: AuthenticationViewModel
-private  lateinit var  firestoreViewModel: FirestoreViewModel
+    private  lateinit var  binding: ActivityRegisterBinding
+    lateinit var   authenticationViewModel: AuthenticationViewModel
+    private  lateinit var  firestoreViewModel: FirestoreViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)

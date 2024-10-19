@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.MapsActivity">
 
     <fragment
         android:id="@+id/map"
@@ -13,26 +13,33 @@
         android:layout_height="0dp"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnZoomIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/zoom_in"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.955"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
-        map:layout_constraintVertical_bias="0.0" />
+        map:layout_constraintVertical_bias="0.764" />
 
-    <ImageButton
-        android:id="@+id/btnZoomIn"
-        android:backgroundTint="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/zoom_in"
-        tools:layout_editor_absoluteX="347dp"
-        tools:layout_editor_absoluteY="513dp" />
-
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnZoomOut"
-        android:backgroundTint="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         android:src="@drawable/zoom_out"
-        tools:layout_editor_absoluteX="347dp"
-        tools:layout_editor_absoluteY="598dp" />
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="@+id/btnZoomIn"
+        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="@+id/btnZoomIn"
+        map:layout_constraintTop_toBottomOf="@+id/btnZoomIn"
+        map:layout_constraintVertical_bias="0.134" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@ class FriendFragment : Fragment() {
     private  lateinit var  fusedLocationClient: FusedLocationProviderClient
 
 
-    private  val requestPermissionLauncher =
+      val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (isGranted) {
                 getLocation()
@@ -50,13 +50,15 @@ class FriendFragment : Fragment() {
 
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentFriendBinding.inflate(inflater, container, false)
 
         firestoreViewModel = ViewModelProvider(this).get(FirestoreViewModel::class.java)
+        authenticationViewModel= ViewModelProvider(this).get(AuthenticationViewModel::class.java)
         locationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
+
         locationViewModel.initializeFusedLocationClient(fusedLocationClient)
         if (ContextCompat.checkSelfPermission(
                 requireContext(),

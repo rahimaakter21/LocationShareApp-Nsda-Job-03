@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                                 navController.navigate(R.id.friendFragment)
                 }
                 R.id.profileFragment -> {
-                    navController.navigate(R.id.profileFragment)
+                    navController.navigate(R.id.profilesFragment)
                 }
 
             }

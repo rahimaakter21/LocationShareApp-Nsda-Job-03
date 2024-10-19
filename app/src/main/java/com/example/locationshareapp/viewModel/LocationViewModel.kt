@@ -15,9 +15,9 @@ class LocationViewModel:ViewModel() {
 
     fun getLastLocation(callback: (String) -> Unit) {
         fusedLocationClient?.lastLocation
-            ?.addOnCompleteListener(OnCompleteListener { task ->
-                if (task.isSuccessful && task.result != null) {
-                    val lastLocation = task.result
+            ?.addOnCompleteListener(OnCompleteListener {
+                if (it.isSuccessful && it.result != null) {
+                    val lastLocation = it.result
                     val latitude = lastLocation.latitude
                     val longitude = lastLocation.longitude
                     val location = "Lat: $latitude, Long: $longitude"
