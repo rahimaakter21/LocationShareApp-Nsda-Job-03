@@ -25,6 +25,12 @@ class RegisterActivity : AppCompatActivity() {
         authenticationViewModel = ViewModelProvider(this).get(AuthenticationViewModel::class.java)
         firestoreViewModel = ViewModelProvider(this).get(FirestoreViewModel::class.java)
 
+        binding.loginTxt.setOnClickListener{
+
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+            finish()
+        }
+
         binding.registerBtn.setOnClickListener{
 
             val name = binding.displayNameEt.text.toString()

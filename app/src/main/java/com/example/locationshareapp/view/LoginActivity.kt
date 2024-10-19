@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this,"password must be at least 6 characters", Toast.LENGTH_SHORT).show()
             }
             else{
-                authenticationViewModel.register(email,password, {
+                authenticationViewModel.login(email,password, {
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 },{
