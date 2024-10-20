@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.locationshareapp.R
+import com.example.locationshareapp.databinding.ActivityMainBinding
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -17,11 +18,14 @@ import com.example.locationshareapp.viewModel.FirestoreViewModel
  class  MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsBinding
     private lateinit var firestoreViewModel: FirestoreViewModel
 
+     private val binding by lazy {
+         ActivityMapsBinding.inflate(layoutInflater)
+     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMapsBinding.inflate(layoutInflater)
+
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)

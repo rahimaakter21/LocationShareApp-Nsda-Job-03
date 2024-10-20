@@ -5,22 +5,21 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.locationshareapp.FriendFragment
 import com.example.locationshareapp.R
 import com.example.locationshareapp.databinding.ActivityMainBinding
+import com.example.locationshareapp.viewModel.FirestoreViewModel
 import com.example.locationshareapp.viewModel.LocationViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var actionDrawerToggle: ActionBarDrawerToggle
-    private  lateinit var  locationViewModel: LocationViewModel
-    private  lateinit var  fusedLocationClient: FusedLocationProviderClient
-
-
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -31,9 +30,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         var navController = findNavController(R.id.fragmentContainerView)
         binding.bottomBar.setupWithNavController(navController)
         binding.drawerNav.setupWithNavController(navController)
+
         actionDrawerToggle =
             ActionBarDrawerToggle(this, binding.drawerlayout, R.string.nav_open, R.string.nav_close)
         actionDrawerToggle.syncState()
@@ -47,8 +48,13 @@ class MainActivity : AppCompatActivity() {
                  startActivity(Intent(this, LoginActivity::class.java))
                   finish()
 
-            }
-
+                }
+                //R.id.profilesFragment -> {
+                  //  navController.navigate(R.id.profilesFragment)
+               // }
+              //  R.id.friendFragment -> {
+                  //  navController.navigate(R.id.friendFragment)
+                //}
             }
             true
         }
@@ -60,12 +66,12 @@ class MainActivity : AppCompatActivity() {
                     finish()
 
                 }
-                R.id.friendFragment -> {
-                                navController.navigate(R.id.friendFragment)
-                }
+             R.id.friendFragment -> {
+                 navController.navigate(R.id.friendFragment)
+              }
                 R.id.profileFragment -> {
                     navController.navigate(R.id.profilesFragment)
-                }
+              }
 
             }
            true
