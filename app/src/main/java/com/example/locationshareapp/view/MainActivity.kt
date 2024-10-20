@@ -49,12 +49,12 @@ class MainActivity : AppCompatActivity() {
                   finish()
 
                 }
-                //R.id.profilesFragment -> {
-                  //  navController.navigate(R.id.profilesFragment)
-               // }
-              //  R.id.friendFragment -> {
-                  //  navController.navigate(R.id.friendFragment)
-                //}
+                R.id.profilesFragment -> {
+                    navController.navigate(R.id.profilesFragment)
+                }
+                R.id.friendFragment -> {
+                    navController.navigate(R.id.friendFragment)
+                }
             }
             true
         }
@@ -66,12 +66,12 @@ class MainActivity : AppCompatActivity() {
                     finish()
 
                 }
-             R.id.friendFragment -> {
-                 navController.navigate(R.id.friendFragment)
-              }
-                R.id.profileFragment -> {
-                    navController.navigate(R.id.profilesFragment)
-              }
+           R.id.friendFragment -> {
+             navController.navigate(R.id.friendFragment)
+            }
+              R.id.profilesFragment -> {
+                  navController.navigate(R.id.profilesFragment)
+            }
 
             }
            true
