@@ -1,5 +1,6 @@
 package com.example.locationshareapp.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -42,6 +43,11 @@ import com.example.locationshareapp.viewModel.FirestoreViewModel
         }
         binding.btnZoomOut.setOnClickListener {
             mMap.animateCamera(CameraUpdateFactory.zoomOut())
+        }
+        binding.btnhomeOut.setOnClickListener {
+
+            startActivity(Intent(this@MapsActivity, MainActivity::class.java))
+            finish()
         }
     }
 

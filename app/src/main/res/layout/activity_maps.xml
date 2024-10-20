@@ -13,8 +13,10 @@
         android:layout_height="0dp"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.0"
         map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toTopOf="parent" />
+        map:layout_constraintTop_toTopOf="parent"
+        map:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnZoomIn"
@@ -24,10 +26,10 @@
         android:src="@drawable/zoom_in"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.955"
+        map:layout_constraintHorizontal_bias="0.954"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
-        map:layout_constraintVertical_bias="0.764" />
+        map:layout_constraintVertical_bias="0.685" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnZoomOut"
@@ -41,5 +43,18 @@
         map:layout_constraintStart_toStartOf="@+id/btnZoomIn"
         map:layout_constraintTop_toBottomOf="@+id/btnZoomIn"
         map:layout_constraintVertical_bias="0.134" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnhomeOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/home"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="@+id/btnZoomIn"
+        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="@+id/btnZoomIn"
+        map:layout_constraintTop_toBottomOf="@+id/btnZoomIn"
+        map:layout_constraintVertical_bias="0.601" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
